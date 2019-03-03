@@ -1,0 +1,28 @@
+<script>
+   ; (function () {
+      'use strict'
+      let str = 'a',
+         arr = [];
+      for (let index = 3; index < 131; index++) {
+         arr.push(index);
+      }
+      console.log(arr);
+      console.log(binary_search(arr, 55));
+      function binary_search(arr, item) {
+         let low = 0,
+            high = arr.length - 1;
+         while (low <= high) {
+            let mid = Math.round(high - low);
+            if (arr[mid] == item) {
+               return mid;
+            }
+            if(arr[mid]<item ){
+               low = mid+1;
+            }else{
+               high = mid-1;
+            }
+         }
+         return null;
+      }
+   })();
+</script>
