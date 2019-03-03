@@ -1,0 +1,41 @@
+<style>
+    div {
+        border-bottom: 1px solid;
+        padding: 20px 0px;
+        margin: 10px 0px;
+    }
+</style>
+<input id="base" type="text">
+<input id="target" type="text">
+<button>go</button>
+<script>
+    ; (function () {
+        'use strict'
+
+        let base = document.querySelector('#base'),
+            target = document.querySelector('#target'),
+            button = document.querySelector('button');
+
+        button.addEventListener('click', e => {
+            let baseV = base.value,
+                targetV = target.value;
+            let result = document.createElement('div');
+            result.innerHTML = log(parseFloat(baseV), parseFloat(targetV));
+            document.body.appendChild(result);
+        });
+
+        function log(base, target) {
+            let acc = base,
+                count = 1;
+            while (acc < target) {
+                acc *= base;
+                count++;
+            }
+            if (acc > target) {
+
+                count--;
+            }
+            return count;
+        }
+    })();
+</script>
